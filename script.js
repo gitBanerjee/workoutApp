@@ -82,11 +82,11 @@ class App{
   _loadMap(position){
     // console.log(position.coords);
     const { latitude,longitude } = position.coords;
-    console.log(`https://www.google.co.in/maps/@${latitude},${longitude}`);
+
 
     const coords = [latitude,longitude];
 
-    this.#map = L.map('map').setView(coords, #mapZoomLevel);
+    this.#map = L.map('map').setView(coords,this.#mapZoomLevel);
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -224,7 +224,7 @@ class App{
 
     const workout = this.#workouts.find(work => work.id === workoutEl.dataset.id);
 
-    this.#map.setView(workout.coords,#mapZoomLevel,{
+    this.#map.setView(workout.coords,this.#mapZoomLevel,{
       animate:true,
       pan:{
         duration:1
