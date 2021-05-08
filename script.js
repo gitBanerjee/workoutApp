@@ -82,7 +82,7 @@ class App{
   _loadMap(position){
     // console.log(position.coords);
     const { latitude,longitude } = position.coords;
-
+    console.log(`https://www.google.co.in/maps/@${latitude},${longitude}`);
 
     const coords = [latitude,longitude];
 
@@ -213,14 +213,12 @@ class App{
         </div>
         </li>`;
     }
-    console.log("Adding element");
     form.insertAdjacentHTML('afterend',html);
-    console.log(html);
   }
 
   _moveToPopup(e){
     const workoutEl = e.target.closest('.workout');
-    if(!workout) return;
+    if(!workoutEl) return;
 
     const workout = this.#workouts.find(work => work.id === workoutEl.dataset.id);
 
